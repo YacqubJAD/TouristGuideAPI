@@ -39,13 +39,13 @@ public class TouristRepository {
     public TouristAttraction updateAttractionName(TouristAttraction attraction, String update) {
         attraction.setName(update);
 
-        return TouristAttraction;
+        return attraction;
     }
 
     public TouristAttraction updateAttractionDescription(TouristAttraction attraction, String update) {
         attraction.setDescription(update);
 
-        return TouristAttraction;
+        return attraction;
     }
 
     public void deleteAttraction(TouristAttraction attraction) {
