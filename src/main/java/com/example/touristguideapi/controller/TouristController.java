@@ -31,6 +31,35 @@ public class TouristController {
         return new ResponseEntity<>(attractionsList, HttpStatus.OK);
     }
 
+    @GetMapping("/{name}")
+    public ResponseEntity<TouristAttraction> byName(@PathVariable String name) {
+
+        TouristAttraction byName = touristService.getSpecificAttraction(name);
+        return new ResponseEntity<>(byName, HttpStatus.OK);
+    }
+
+    @GetMapping("/add")
+    public ResponseEntity<TouristAttraction> addAttraction(TouristAttraction attraction){
+
+        return new ResponseEntity<>(touristService.addAttraction(attraction), HttpStatus.OK);
+
+    }
+
+    @GetMapping("/update")
+    public ResponseEntity<TouristAttraction> METHODENAVN(){
+
+        return new ResponseEntity<>(METHODEKALD, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/delete/{name}")
+
+    public ResponseEntity<TouristAttraction> METHODENAVN(){
+
+        return new ResponseEntity<>(METHODEKALD, HttpStatus.OK);
+
+
+    }
 
 
 }

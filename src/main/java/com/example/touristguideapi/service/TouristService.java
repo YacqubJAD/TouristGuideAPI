@@ -34,7 +34,12 @@ public class TouristService {
 
     }
 
-    public Tourist
+    if(!(attraction == null) || !(newName == null) || !(newDescription == null)){
+        attraction.setName(newName);
+        attraction.setDescription(newDescription);
+
+        return attraction;
+    }
 
 }
 
