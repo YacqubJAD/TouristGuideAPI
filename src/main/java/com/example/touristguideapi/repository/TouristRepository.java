@@ -24,7 +24,6 @@ public class TouristRepository {
     }
 
 
-    //BIg DIRIR clutch
     public TouristAttraction getAttractionByName(String name) {
         for (TouristAttraction attraction : attractionList) {
             if (attraction.getName().equalsIgnoreCase(name)) return attraction;
