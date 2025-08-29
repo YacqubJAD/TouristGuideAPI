@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping("attractions")
+        @RequestMapping("attractions")
 public class TouristController {
     private TouristService touristService;
 
@@ -45,21 +45,18 @@ public class TouristController {
 
     }
 
-    @GetMapping("/update")
-    public ResponseEntity<TouristAttraction> METHODENAVN(){
+    @PostMapping("/update")
+    public ResponseEntity<TouristAttraction> updateAttraction(@RequestBody TouristAttraction attraction){
 
-        return new ResponseEntity<>(METHODEKALD, HttpStatus.OK);
+        TouristAttraction update = touristService.updateAttraction(attraction);
+        return new ResponseEntity<>(update, HttpStatus.OK);
     }
 
+    @PostMapping("/delete/{name}")
+    public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name){
 
-    @GetMapping("/delete/{name}")
-
-    public ResponseEntity<TouristAttraction> METHODENAVN(){
-
-        return new ResponseEntity<>(METHODEKALD, HttpStatus.OK);
-
-
+        TouristAttraction delete = touristService.deleteAttraction(name);
+        return new ResponseEntity<>(delete, HttpStatus.OK);
     }
-
 
 }

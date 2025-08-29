@@ -1,29 +1,58 @@
-body{
-    dispplay: grid;
-    grid-gap: 1em;
-    grid-template-rows: auto auto 1fr auto;
-    min-height: 100vh;
+/* TouristGuide.css */
+html,
+body {
+    height: 100%;
+}
 
-    
-    @media (min-width: 40em) {
-        body{
-            grid-template-columns: 12em 1fr;
-            grid-template-rows: auto 1fr auto;
-        }
-        header{
-            grid-column: span 2 ;
-        }
+body {
+    margin: 0;
+    background: #f7f9fc;
+}
 
-        nav{
-            grid-row: span 2;
+body > header,
+body > nav,
+body > main,
+body > footer {
+    max-width: 960px;
+}
 
-        }
+h1 {
+    margin-bottom: 0.25rem;
+}
+.lead {
+    max-width: 70ch;
+}
 
-        header {grid-area: banner; }
-        nav{ grid-area : nav;}
-        main{grid-area: main;}
-        footer.f1 { grid-area : footer;}
+section {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+.grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+@media (min-width: 40em) {
+    .grid {
+        grid-template-columns: 1fr 1.6fr;
     }
+}
 
-
+footer.f1 {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    padding: 0.75rem 0 1rem;
+}
+footer.f1 a {
+    color: inherit;
+    text-decoration: underline;
 }

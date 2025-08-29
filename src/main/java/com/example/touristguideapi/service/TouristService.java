@@ -2,7 +2,6 @@ package com.example.touristguideapi.service;
 
 import com.example.touristguideapi.model.TouristAttraction;
 import com.example.touristguideapi.repository.TouristRepository;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class TouristService {
 
     public List<TouristAttraction> getAllAttractions() {
 
-        return touristRepository.touristAdd();
+        return touristRepository.getAll();
     }
 
     public TouristAttraction getSpecificAttraction(String name){
@@ -34,9 +33,9 @@ public class TouristService {
 
     }
 
-    if(!(attraction == null) || !(newName == null) || !(newDescription == null)){
+    public TouristAttraction updateAttraction(TouristAttraction attraction){
 
-        return attraction;
+        return touristRepository.updateAttraction(attraction);
     }
 
 }

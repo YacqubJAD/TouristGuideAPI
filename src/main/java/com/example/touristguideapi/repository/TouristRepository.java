@@ -9,18 +9,18 @@ import java.util.ArrayList;
 public class TouristRepository {
     ArrayList<TouristAttraction> attractionList = new ArrayList<>();
 
-
-    public ArrayList<TouristAttraction> touristAdd() {
+    
+    public TouristRepository(){
         attractionList.add(new TouristAttraction("Tivoli", "Dansk forlystelsespark"));
         attractionList.add(new TouristAttraction("Rundetårn", "Tårn placeret i centrum af København"));
         attractionList.add(new TouristAttraction("Parken", "Hjem til Danmarks bedste fodboldklub"));
         attractionList.add(new TouristAttraction("Lille havfrue", "Historisk statue"));
-
-        return attractionList;
     }
 
-    public TouristRepository(){
-        touristAdd();
+    public ArrayList<TouristAttraction> getAll() {
+
+
+        return attractionList;
     }
 
     //public ArrayList<TouristAttraction> getAllAttractions() {
@@ -36,12 +36,10 @@ public class TouristRepository {
     }
 
     public TouristAttraction addAttraction(TouristAttraction attraction) {
-        if (!(attraction == null)) {
-            attractionList.add(attraction);
-            return attraction;
-        }
+        TouristAttraction newAttraction = new TouristAttraction(attraction.getName(), attraction.getDescription());
 
-        return null;
+        attractionList.add(newAttraction);
+        return newAttraction;
     }
 
     public TouristAttraction updateAttractionName(TouristAttraction attraction, String update) {
@@ -56,18 +54,29 @@ public class TouristRepository {
         return attraction;
     }
 
-    public void deleteAttraction(TouristAttraction attraction) {
-        if (!(attraction == null )) attractionList.remove(attraction);
+    public TouristAttraction deleteAttraction(String name) {
+        if (!(name == null )){
+            TouristAttraction tempAttraction = getAttractionByName(name);
+            attractionList.remove(tempAttraction);
 
+            return tempAttraction;
+        }
+
+        return null;
     }
 
-    public TouristAttraction updateAttraction(TouristAttraction attraction, String newName, String newDescription){
+    public TouristAttraction updateAttraction(TouristAttraction attraction){
+        TouristAttraction tempAttraction = getAttractionByName(attraction.getName());
 
-        if(!(attraction == null) || !(newName == null) || !(newDescription == null)){
-            attraction.setName(newName);
-            attraction.setDescription(newDescription);
 
-            return attraction;
+        if(tempAttraction != null){
+            //attractionList.remove(tempAttraction);
+            tempAttraction.setName(attraction.getName());
+            tempAttraction.setDescription(attraction.getDescription());
+
+            //attractionList.add(tempAttraction);
+
+            return tempAttraction;
         }
 
         return null;
